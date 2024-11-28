@@ -1,0 +1,324 @@
+/* Définir la police et les styles généraux pour tout le site */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(back.jpg); /* Fond plus clair */
+    background-size: cover; /* Ajuste l'image pour couvrir toute la zone */
+    background-position: center; /* Centre l'image dans la page */
+    background-attachment: fixed; /* L'image reste fixe lorsqu'on fait défiler la page */
+    color: #fff; /* Texte blanc pour un bon contraste */
+}
+/*------------------Header----------------*/
+header{position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10%;
+}
+
+header .logo{font-size: 25px;
+          font-weight: bolder;
+          color: #fff;
+          text-transform: uppercase;}
+
+header .logo span{color:rgb(122, 25, 25)}
+
+header .navbar a{color: #fff;
+              font-size: 20px;
+              margin: 8px;
+              text-decoration: none;}
+
+header .navbar a:hover{color: rgb(1, 16, 50);text-decoration: none;}
+
+header .icons img{margin-right: 20px;
+               height:18px;
+               width:18px;}
+
+               header .navbar a{color: #fff;
+                font-size: 20px;
+                margin: 8px;}
+
+header .navbar a:hover{color: rgb(74, 1, 1);}
+
+
+/* Style de la barre de navigation */
+
+
+/* Style de l'en-tête */
+.header {
+    background-color: rgba(52, 152, 219, 0.8); /* Bleu foncé avec transparence */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+.search-bar-container{position: relative;
+    border-top: 2px solid rgba(255, 255, 255, .2);
+    margin-top: 58px;
+    left: 0; 
+    right: 0;
+    padding: 15px 20px;
+    background: #333;
+    display: flex;
+    align-items: center;}
+
+.search-bar-container #search-bar{width: 100%;
+                    padding: 10px; 
+                    text-transform: none;
+                    color: #333;
+                    font-size: 17px;
+                    border-radius: 5px;}
+
+.search-bar-container img{margin-left: 15px;
+              height:24px; 
+              width:24px; }
+    .book{
+            max-width: 60%;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 70px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            background: url('background1.png') center/cover;
+        }
+
+.header h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+/* Style du contenu principal */
+.main-content {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent pour le contenu */
+    border-radius: 8px;
+}
+
+/* Style pour les titres principaux et secondaires */
+h1, h2 {
+    color: #fff; /* Blanc pour les titres */
+}
+
+/* Table des caractéristiques clés */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+th {
+    background-color: #3c4f6d;/* Bleu plus clair */
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(52, 152, 219, 0.2); /* Gris très clair */
+}
+
+/* Contenu des animations */
+.orbit-content, .rotation-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond similaire */
+}
+
+.orbit-text, .rotation-text {
+    flex: 1 1 45%;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: transparent; /* Fond transparent pour Orbit */
+    border-radius: 8px;
+    box-shadow: none; /* Retirer l'ombre autour */
+}
+
+/* Contenu du texte dans les paragraphes */
+.orbit-text p, .rotation-text p {
+    color: #fff; /* Texte blanc */
+    line-height: 1.6; /* Espacement entre les lignes */
+    font-size: 1rem; /* Taille de police pour une meilleure lisibilité */
+}
+
+/* Section Photos */
+.caracmeruc-photo, .metallite-photo, .geologie-photo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.caracmeruc-photo img, .metallite-photo img, .geologie-photo img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+figcaption {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 1rem;
+    color: #666; /* Gris clair pour la légende */
+}
+
+/* Responsivité pour les petits écrans */
+@media (max-width: 768px) {
+    .orbit-content, .rotation-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .orbit-text, .rotation-text {
+        font-size: 1rem;
+    }
+
+    .caracmeruc-photo img, .metallite-photo img, .geologie-photo img {
+        max-width: 100%;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
+    }
+
+    .book .row {
+        flex-direction: column; /* Empilement des éléments */
+    }
+}
+
+/* Boutons */
+button, .button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #2d3e50; /* Bleu foncé */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .button:hover {
+    background-color: #1c2a38; /* Bleu encore plus foncé */
+    transform: scale(1.05);
+}
+
+button:focus, .button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 77, 153, 0.7);
+}
+
+/* Galerie de photos */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Cacher les éléments avec la classe "hidden" */
+.hidden {
+    display: none;
+}
+
+/* Section Book */
+.book .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Image et formulaire */
+.book .row .image img {
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book .row form {
+    flex: 1 1 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+    background-color: none;
+    
+    
+}
+.photo-small {
+    display: block; /* S'assurer que l'image est visible */
+    position: absolute; /* Pour placer l'image en haut à gauche */
+    top: 10px; /* Distance depuis le haut */
+    left: 10px; /* Distance depuis la gauche */
+    width: 100px; /* Largeur réduite */
+    height: auto; /* Maintenir les proportions */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre douce */
+}
+/* Section spécifique */
+.section {
+    background-image: url('merc1.jpg');
+    background-size: cover;
+    background-position: left;
+    background-attachment: fixed;
+    padding: 50px 0;
+    color: #fff;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+.image-container {
+    text-align: center;
+    margin: 10px;
+    display: inline-block;
+    max-width: 130px; 
+}
+.image-container img {
+    width: 100%; 
+    height: auto;
+    border-radius: 8px; 
+    display: inline-block;
+    margin-bottom: 5px;
+}
+@media (max-width: 600px) {  /*if cond true*/
+    .image-container {
+        max-width: 100%; /* Adjust the width for smaller screens */
+    }
+}
+
