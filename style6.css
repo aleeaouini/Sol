@@ -290,7 +290,7 @@ video {
 }
 /* Section spécifique */
 .section {
-    background-image: url('merc1.jpg');
+    background-image: url('img/anneau.jpg');
     background-size: cover;
     background-position: left;
     background-attachment: fixed;
