@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Amélioré - Système Solaire</title>
+  <link rel="stylesheet" href="styles4.css">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const quizForm = document.getElementById('quiz-form');
+  const resultContainer = document.getElementById('result');
+  const scoreElement = document.getElementById('score');
+  const detailsContainer = document.getElementById('details');
+  const progressBar = document.getElementById('progress-bar');
+  const quizQuestionsContainer = document.getElementById('quiz-questions');
+
+  // Liste des questions avec images et réponses
+  const questions = [
+    {
+      question: "1. Quelle est la planète la plus proche du Soleil ?",
+      image: "mercure.jfif",
+      answers: { a: "Mercure", b: "Vénus", c: "Mars" },
+      correct: "a",
+    },
+    {
+      question: "2. Quelle est la plus grande planète du système solaire ?",
+      image: "jupiter.jfif",
+      answers: { a: "Jupiter", b: "Saturne", c: "Neptune" },
+      correct: "a",
+    },
+    {
+      question: "3. Quelle planète a des anneaux visibles ?",
+      image: "saturne.jfif",
+      answers: { a: "Saturne", b: "Uranus", c: "Jupiter" },
+      correct: "a",
+    },
+];
+  // Génération des questions
+  function generateQuestions() {
+    quizQuestionsContainer.innerHTML = '';
+    questions.forEach((q, index) => {
+      const questionHTML = `
+        <div class="question">
+          <p>${q.question}</p>
+          <img src="${q.image}" alt="Image de la question ${index + 1}">
+          ${Object.entries(q.answers)
+            .map(
+              ([key, value]) =>
+                `<label><input type="radio" name="q${index + 1}" value="${key}" required> ${value}</label>`
+            )
+            .join('')}
+        </div>`;
+      quizQuestionsContainer.innerHTML += questionHTML;
+    });
+  }
+
+  generateQuestions();
+
+  quizForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    let score = 0;
+
+    const formData = new FormData(quizForm);
+    questions.forEach((q, index) => {
+      const userAnswer = formData.get(`q${index + 1}`);
+      if (userAnswer === q.correct) score++;
+    });
+
+    scoreElement.textContent = `${score} / ${questions.length}`;
+    resultContainer.style.display = 'block';
+    quizForm.style.display = 'none';
+  });
+
+  window.resetQuiz = function () {
+    quizForm.reset();
+    resultContainer.style.display = 'none';
+    quizForm.style.display = 'block';
+  };
+});
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Quiz du Système Solaire</h1>
+  </header>
+
+  <section class="quiz-container">
+    <h2>Testez vos connaissances sur le Système Solaire !</h2>
+    <div class="progress-bar">
+      <div class="progress" id="progress-bar"></div>
+    </div>
+
+    <!-- Formulaire du quiz -->
+    <form id="quiz-form">
+      <!-- Questions dynamiques générées en JavaScript -->
+      <div id="quiz-questions"></div>
+
+      <button type="submit">Soumettre les réponses</button>
+    </form>
+
+    <!-- Résultat -->
+    <div id="result" class="result">
+      <h3>Votre score : <span id="score"></span></h3>
+      <div id="details"></div>
+      <button onclick="resetQuiz()">Réessayer</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Quiz du Système Solaire</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

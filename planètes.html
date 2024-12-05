@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Planètes du Système Solaire</title>
+  <link rel="stylesheet" href="styles3.css">
+  <script>
+function showDetails(planet) {
+  const planetInfo = document.getElementById('planet-info');
+  const planetDetails = document.getElementById('planet-details');
+</script>
+</head>
+<body>
+  <header>
+    <h1>Les Planètes du Système Solaire</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="actualités.html">Actualités</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="login.html">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="planet-gallery">
+    <!-- Mercure -->
+    <div class="planet" id="mercury">
+      <img src="mercure.jfif" alt="Mercure">
+      <h3>Mercure</h3>
+      <p>La planète la plus proche du Soleil.</p>
+      <a href="mercure.html"><button class="btn">Voir plus</button></a>
+    </div>
+
+    <!-- Vénus -->
+    <div class="planet" id="venus">
+      <img src="venus.jfif" alt="Vénus">
+      <h3>Vénus</h3>
+      <p>La planète sœur de la Terre.</p>
+      <a href="vénus.html"><button onclick="showDetails('Vénus')">Voir plus</button></a>
+    </div>
+
+    <!-- Terre -->
+    <div class="planet" id="earth">
+      <img src="terre.jfif" alt="Terre">
+      <h3>Terre</h3>
+      <p>Notre planète, la seule connue à abriter la vie.</p>
+     <a href="terre.html"><button onclick="showDetails('Terre')">Voir plus</button></a>
+    </div>
+
+    <!-- Mars -->
+    <div class="planet" id="mars">
+      <img src="mars.jfif" alt="Mars">
+      <h3>Mars</h3>
+      <p>La planète rouge, connue pour ses possibilités d'exploration future.</p>
+     <a href="mars.html"><button onclick="showDetails('Mars')">Voir plus</button></a>
+    </div>
+
+    <!-- Jupiter -->
+    <div class="planet" id="jupiter">
+      <img src="jupiter.jfif" alt="Jupiter">
+      <h3>Jupiter</h3>
+      <p>La plus grande planète du système solaire.</p>
+     <a href="jupiter.html"><button onclick="showDetails('Jupiter')">Voir plus</button></a>
+    </div>
+
+    <!-- Saturne -->
+    <div class="planet" id="saturn">
+      <img src="saturne.jfif" alt="Saturne">
+      <h3>Saturne</h3>
+      <p>Célèbre pour ses anneaux magnifiques.</p>
+      <a href="saturne.html"><button onclick="showDetails('Saturne')">Voir plus</button></a>
+    </div>
+
+    <!-- Uranus -->
+    <div class="planet" id="uranus">
+      <img src="uranus.jfif" alt="Uranus">
+      <h3>Uranus</h3>
+      <p>Une planète qui roule sur son côté.</p>
+      <a href="uranus.html"><button onclick="showDetails('Uranus')">Voir plus</button></a>
+    </div>
+
+    <!-- Neptune -->
+    <div class="planet" id="neptune">
+      <img src="neptune.jfif" alt="Neptune">
+      <h3>Neptune</h3>
+      <p>La planète bleue, lointaine et froide.</p>
+      <a href="neptune.html"><button onclick="showDetails('Neptune')">Voir plus</button></a>
+    </div>
+  </section>
+
+  <!-- Section d'informations sur la planète -->
+  <div id="planet-info" class="planet-info">
+    <h2>Informations sur la planète</h2>
+    <p id="planet-details"></p>
+    <div id="planet-video"></div> <!-- Vidéo YouTube de la planète -->
+    <button onclick="closeDetails()">Fermer</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Système Solaire</p>
+  </footer>
+
+  <script src="js/planets.js"></script>
+</body>
+</html>

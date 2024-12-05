@@ -1,0 +1,145 @@
+/* Styles généraux */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #001f3d;
+  color: #ffffff;
+}
+
+header {
+  background: rgba(0, 0, 50, 0.8);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ffffff;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #ffcc00;
+}
+
+.quiz-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.quiz-container h2 {
+  color: #ffcc00;
+  margin-bottom: 20px;
+}
+
+.progress-bar {
+  background: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  height: 20px;
+  width: 100%;
+}
+
+.progress {
+  background: #ffcc00;
+  height: 100%;
+  width: 0%;
+  border-radius: 5px;
+  transition: width 0.5s ease;
+}
+
+.question {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.question p {
+  font-size: 1.2rem;
+}
+
+label {
+  font-size: 1rem;
+  display: block;
+  margin: 5px 0;
+}
+
+button {
+  background: #ffcc00;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #fdfd96;
+}
+
+.result {
+  display: none;
+  margin-top: 20px;
+}
+
+.result h3 {
+  font-size: 1.5rem;
+  color: #ffcc00;
+}
+
+.explanation {
+  margin-top: 10px;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+}
+
+footer {
+  background: rgba(0, 0, 50, 0.9);
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ffffff;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+}
+.question {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.question img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 1rem;
+  display: block;
+  margin: 5px 0;
+}
+
+button {
+  background: #ffcc00;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #fdfd96;
+}
+

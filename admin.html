@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tableau de bord d'administration</title>
+    <link rel="stylesheet" href="stylees.css">
+    <script>function showSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.style.display = 'none');
+
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.style.display = 'block';
+    }
+}
+
+function addUser() {
+    const userList = document.getElementById('user-list');
+    const newUser = document.createElement('li');
+    newUser.textContent = 'New User';
+    userList.appendChild(newUser);
+}
+
+function changeTheme() {
+    const theme = document.getElementById('theme').value;
+    if (theme === 'dark') {
+        document.body.style.backgroundColor = '#333';
+        document.body.style.color = 'white';
+        document.querySelector('.sidebar').style.backgroundColor = '#222';
+        document.querySelector('.main-content').style.backgroundColor = '#444';
+    } else {
+        document.body.style.backgroundColor = '#f4f4f4';
+        document.body.style.color = 'black';
+        document.querySelector('.sidebar').style.backgroundColor = '#333';
+        document.querySelector('.main-content').style.backgroundColor = 'white';
+    }
+}
+
+function logout() {
+    alert('Logging out...');
+    window.location.href = 'login.html';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSection('dashboard');
+});
+</script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Panneau d'administration</h2>
+        <ul>
+            <li><a href="#" onclick="showSection('tableau de bord')">tableau de bord</a></li>
+            <li><a href="#" onclick="showSection('utilisateurs')">Gérer les utilisateurs</a></li>
+            <li><a href="#" onclick="showSection('paramétres')">paramétres</a></li>
+            <li><a href="#" onclick="showSection('logs')">voir les journaux</a></li>
+            <li><a href="#" onclick="showSection('déconnexion')">déconnexion</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div id="dashboard" class="section">
+            <h1>Dashboard</h1>
+            <p>Bienvenue sur le tableau de bord d'administration. Ici vous pouvez tout gérer.</p>
+        </div>
+
+        <div id="users" class="section">
+            <h1>Manage Users</h1>
+            <button onclick="addUser()">Ajouter un nouvel utilisateur</button>
+            <ul id="user-list">
+            </ul>
+        </div>
+
+        <div id="settings" class="section">
+            <h1>Settings</h1>
+            <label for="theme">Theme: </label>
+            <select id="theme" onchange="changeTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+
+        <div id="logs" class="section">
+            <h1>View Logs</h1>
+            <ul>
+                <li>Log 1: User login</li>
+                <li>Log 2: Settings changed</li>
+                <li>Log 3: New user added</li>
+            </ul>
+        </div>
+
+        <div id="logout" class="section">
+            <h1>Logout</h1>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

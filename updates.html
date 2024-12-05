@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA Live Updates</title>
+  <link rel="stylesheet" href="styless.css">
+  <script type="text/javascript">// script.js
+const apiKey = 'DEMO_KEY'; // Remplacez par votre clé API NASA
+
+// Fetch Astronomy Picture of the Day
+async function fetchAPOD() {
+  const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
+  const data = await response.json();
+  displayAPOD(data);
+}
+
+function displayAPOD(data) {
+  const apodContent = document.getElementById('apod-content');
+  apodContent.innerHTML = `
+    <h3>${data.title}</h3>
+    <img src="${data.url}" alt="${data.title}" width="100%">
+    <p>${data.explanation}</p>
+  `;
+}
+
+// Fetch News (Simulated: Replace with API or manual updates if available)
+async function fetchNews() {
+  const response = await fetch(`https://api.nasa.gov/insight_weather/?api_key=${apiKey}&feedtype=json&ver=1.0`);
+  const data = await response.json();
+  displayNews(data);
+}
+
+function displayNews(data) {
+  const newsContent = document.getElementById('news-content');
+  newsContent.innerHTML = `
+    <p>Data available soon from NASA's API</p>
+  `;
+}
+
+// Call Functions
+fetchAPOD();
+fetchNews();
+</script>
+</head>
+<body>
+  <header>
+    <h1>NASA Live Updates</h1>
+    <p>Stay updated with the latest from space exploration</p>
+  </header>
+  <main>
+    <section id="apod">
+      <h2>Astronomy Picture of the Day</h2>
+      <div id="apod-content"></div>
+    </section>
+    <section id="news">
+      <h2>NASA News</h2>
+      <div id="news-content"></div>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 NASA Updates</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
