@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de photos</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><span>M</span>ercure</a>
+     <!-- Barre de navigation -->
+     <nav class="navbar">
+        <a href="#acceuil">Acceuil</a>
+        <a href="#les-planetes">Les Planetes</a>
+        <a href="#photos">Photos d'astronomie</a>
+        <a href="#outils">Administration</a>
+            
+        
+    </nav>
+    <div class="icons">
+        <a href="#login-form"><img src="img/login icon.png" id="login-btn"></a>
+    </div>
+</header>
+    
+    <div class="content">
+        <section class="book" id="book"> 
+
+    <!-- Galerie de photos -->
+    <div class="image-container">
+        <img src="img/venus1.jpg" alt="Photo 1">
+    </div>
+    <div class="image-container">
+        <img src="img/geo.jpg" alt="Photo 2">
+    </div>
+    <div class="image-container">
+        <img src="img/rot.jpg" alt="Photo 3">
+    </div>
+    <div class="image-container">
+        <img src="img/venus5.jpg" alt="Photo 4">
+    </div>
+    <div class="image-container">
+        <img src="img/atm.jpg" alt="Photo 4">
+    </div>
+    <div class="image-container">
+        <img src="img/geo1.png" alt="Photo 4">
+    </div>
+</section>
+
+    <!-- Bouton Retour -->
+    <a href="index1.html" class="back-button">Retour à la page précédente</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.getElementById('add-photos-btn'); // Récupère le bouton
+            const gallery = document.getElementById('photo-gallery'); // Récupère la galerie de photos
+
+            // Ajoute un événement de clic au bouton
+            button.addEventListener('click', function(event) {
+                event.preventDefault(); // Empêche le comportement par défaut du lien
+                gallery.classList.toggle('hidden');
+                
+                // Change le texte du bouton en fonction de l'état de la galerie
+                if (gallery.classList.contains('hidden')) {
+                    button.textContent = 'Voir d\'autres photos';
+                } else {
+                    button.textContent = 'Masquer les photos';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

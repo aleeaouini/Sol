@@ -1,3 +1,4 @@
+
 /* Définir la police et les styles généraux pour tout le site */
 body {
     font-family: Arial, sans-serif;
@@ -40,12 +41,13 @@ header .icons img{margin-right: 20px;
                height:18px;
                width:18px;}
 
-               header .navbar a{color: #fff;
+               header .navbar a{color: #fff; 
                 font-size: 20px;
                 margin: 8px;}
 
-header .navbar a:hover{color: rgb(74, 1, 1);}
-
+header .navbar a:hover {
+    color: rgb(200, 50, 50);
+}
 
 /* Style de la barre de navigation */
 
@@ -86,7 +88,7 @@ header .navbar a:hover{color: rgb(74, 1, 1);}
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             height: 100vh;
-            background: url('img/background1.png') center/cover;
+            background: url('background1.png') center/cover;
         }
 
 .header h2 {

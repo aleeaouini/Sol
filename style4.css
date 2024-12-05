@@ -86,7 +86,7 @@ header .navbar a:hover{color: rgb(74, 1, 1);}
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             height: 100vh;
-            background: url('img/background1.png') center/cover;
+            background: url('background1.png') center/cover;
         }
 
 .header h2 {
