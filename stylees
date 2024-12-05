@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+}
+
+#sun {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: yellow;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px dashed white;
+    top: 0;
+    left: 0;
+}
+
+.planet {
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+}
+
+#mercury {
+    width: 16px;
+    height: 16px;
+    background-color: gray;
+}
+
+#venus {
+    width: 24px;
+    height: 24px;
+    background-color: tan;
+}
+
+#earth {
+    width: 30px;
+    height: 30px;
+    background-color: blue;
+}
+
+#mars {
+    width: 28px;
+    height: 28px;
+    background-color: red;
+}
+
+#jupiter {
+    width: 48px;
+    height: 48px;
+    background-color: orange;
+}
+
+#saturn {
+    width: 40px;
+    height: 40px;
+    background-color: gold;
+}
+
+#uranus {
+    width: 32px;
+    height: 32px;
+    background-color: lightblue;
+}
+
+#neptune {
+    width: 32px;
+    height: 32px;
+    background-color: blue;
+}

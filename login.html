@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion au système solaire</title>
+  <link rel="stylesheet" href="styles2.css">
+  <script>
+
+document.addEventListener("mousemove", (event) => {
+  const planets = document.querySelectorAll(".planet-orbit");
+  planets.forEach((orbit, index) => {
+    const speed = (index + 1) * 0.05;
+    orbit.style.transform = `rotate(${event.clientX * speed}deg)`;
+  });
+});
+</script>
+</head>
+<body>
+  <div class="login-container">
+    <div class="solar-background">
+      <div class="planet-orbit">
+        <div class="planet"></div>
+      </div>
+    </div>
+    <form class="login-form">
+      <h1>Bienvenue dans l'espace</h1>
+      <p>Connectez-vous pour explorer la galaxie</p>
+      <input type="text" placeholder="nom d'utilisateur" required>
+      <input type="password" placeholder="mot de passe" required>
+      <button type="submit">se connecter</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
