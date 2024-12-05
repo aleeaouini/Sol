@@ -3,22 +3,48 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: #001f3d; /* Fond sombre de l'espace */
+  background: radial-gradient(circle at center, #0d1b2a 10%, #000814 90%);
   color: #ffffff;
+  overflow-x: hidden;
 }
 
+/* Fond animé d'étoiles */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('stars.png') repeat;
+  opacity: 0.8;
+  animation: moveStars 50s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+/* En-tête */
 header {
-  background: rgba(0, 0, 50, 0.8);
+  background: linear-gradient(to right, #001d3d, #1b263b);
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 3px solid #00d4ff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 header h1 {
   margin: 0;
-  font-size: 3rem;
-  color: #ffcc00; /* Jaune pour attirer l'attention */
-  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+  font-size: 4rem;
+  color: #00d4ff;
+  text-shadow: 0px 0px 30px rgba(0, 212, 255, 1);
 }
 
 nav ul {
@@ -27,70 +53,111 @@ nav ul {
   margin: 10px 0 0;
   display: flex;
   justify-content: center;
-}
-
-nav ul li {
-  margin: 0 15px;
+  gap: 25px;
 }
 
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  font-size: 1.3rem;
+  padding: 8px 20px;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #fdfd96;
+  background: #00d4ff;
+  color: #000;
+  box-shadow: 0px 4px 20px #00d4ff;
+  transform: translateY(-3px);
 }
 
+/* Galerie des planètes */
 .planet-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 50px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Planètes - Design néon et interactif */
 .planet {
-  background: rgba(0, 0, 50, 0.7);
+  background: linear-gradient(145deg, #001d3d, #003566);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 15px;
   text-align: center;
-  transition: transform 0.3s ease;
+  box-shadow: 0px 10px 30px rgba(0, 212, 255, 0.5), inset 0px 0px 15px rgba(0, 212, 255, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .planet img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 15px;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.planet:hover img {
+  transform: scale(1.2) rotate(10deg);
+  filter: brightness(1.5);
 }
 
 .planet h3 {
-  color: #ffcc00;
-  margin-top: 10px;
+  color: #00d4ff;
+  margin-top: 15px;
+  font-size: 2rem;
+  text-shadow: 0px 0px 10px rgba(0, 212, 255, 1);
 }
 
 .planet p {
-  color: #ddd;
+  color: #a8d5e5;
+  font-size: 1rem;
 }
 
 .planet button {
-  background: #ffcc00;
+  background: linear-gradient(to right, #00d4ff, #1cffff);
   color: #000;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 25px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  box-shadow: 0px 4px 15px rgba(0, 212, 255, 0.8);
+  transition: all 0.3s ease;
 }
 
 .planet button:hover {
-  background-color: #fdfd96;
+  background: #1cffff;
+  transform: scale(1.2) translateY(-3px);
 }
 
 .planet:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+  box-shadow: 0px 15px 50px rgba(0, 212, 255, 0.9);
+}
+
+.planet::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  transform: scale(0);
+  transition: transform 0.6s ease;
+}
+
+.planet:hover::after {
+  transform: scale(1);
 }
 
 /* Section d'information sur la planète */
@@ -100,48 +167,105 @@ nav ul li a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 50, 0.9);
+  background: rgba(0, 20, 50, 0.95);
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 20px;
   width: 80%;
-  max-width: 600px;
+  max-width: 700px;
   text-align: center;
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.9), 0px 0px 30px rgba(0, 212, 255, 1);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
 .planet-info h2 {
-  color: #ffcc00;
-  font-size: 2rem;
+  color: #00d4ff;
+  font-size: 2.5rem;
 }
 
 .planet-info p {
-  color: #ddd;
-  font-size: 1rem;
+  color: #ffffff;
+  font-size: 1.2rem;
 }
 
 .planet-info button {
-  background: #ffcc00;
+  background: #00d4ff;
   color: #000;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 30px;
+  border-radius: 50px;
   cursor: pointer;
   margin-top: 20px;
-  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
 }
 
 .planet-info button:hover {
-  background-color: #fdfd96;
+  background-color: #1cffff;
+  transform: scale(1.1);
 }
 
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Footer */
 footer {
-  background: rgba(0, 0, 50, 0.9);
-  padding: 15px;
+  background: linear-gradient(to right, #001d3d, #003566);
+  padding: 20px;
   text-align: center;
-  border-top: 1px solid #ffffff;
+  border-top: 3px solid #00d4ff;
 }
 
 footer p {
   margin: 0;
-  color: #aaaaaa;
-  font-size: 0.9rem;
+  color: #a8d5e5;
+  font-size: 1rem;
 }
+
+footer p:hover {
+  color: #ffffff;
+  text-shadow: 0px 0px 10px rgba(0, 212, 255, 1);
+}
+.planet {
+  background: linear-gradient(145deg, #001d3d, #003566);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0px 10px 30px rgba(0, 212, 255, 0.5), inset 0px 0px 15px rgba(0, 212, 255, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.planet img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+.planet h3 {
+  color: #00d4ff;
+  margin-top: 15px;
+  font-size: 2rem;
+  text-shadow: 0px 0px 10px rgba(0, 212, 255, 1);
+}
+
+.planet.active {
+  transform: scale(1.5); /* L'agrandissement */
+  z-index: 10; /* Assure que l'élément est au-dessus des autres */
+  box-shadow: 0px 20px 50px rgba(0, 212, 255, 0.9);
+}
+
+.planet.active img {
+  transform: scale(1.2); /* Zoom supplémentaire pour l'image */
+}
+

@@ -1,0 +1,130 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a40; /* Couleur de l'espace */
+    color: white;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(135deg, #0d1b2a, #1b263b); /* Thème spatial */
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffcc00; /* Couleur rappelant le soleil */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #b0d0f0; /* Couleur rappelant les étoiles */
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    color: #ffcc00; /* Soleil en survol */
+}
+
+/* Contenu principal */
+.main-content {
+    margin-left: 270px;
+    padding: 20px;
+    background-color: #26264d; /* Atmosphère sombre */
+    min-height: 100vh;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.main-content h1 {
+    color: #ffcc00;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.main-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Sections cachées par défaut */
+.section {
+    display: none;
+}
+
+.section h1 {
+    border-bottom: 2px solid #ffcc00;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Boutons */
+button {
+    background-color: #ffcc00; /* Soleil */
+    color: #26264d;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ffaa00; /* Soleil intense */
+}
+
+/* Liste des utilisateurs */
+#user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#user-list li {
+    background-color: #333366; /* Couleur des planètes */
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* Sélecteur de thème */
+select {
+    background-color: #333366;
+    color: white;
+    border: 1px solid #ffcc00;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Journaux */
+#logs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#logs li {
+    background-color: #444477;
+    color: #b0d0f0;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}

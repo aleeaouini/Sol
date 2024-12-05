@@ -27,6 +27,8 @@ body {
   border-radius: 50%;
   animation: spin 10s linear infinite;
   z-index: -1;
+  filter: blur(2px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .planet-orbit {
@@ -36,6 +38,7 @@ body {
   border: 2px dashed rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   animation: spin 15s linear infinite reverse;
+  opacity: 0.7;
 }
 
 .planet {
@@ -47,7 +50,8 @@ body {
   transform: translateX(-50%);
   background: #ffcc00;
   border-radius: 50%;
-  box-shadow: 0 0 10px #ffcc00;
+  box-shadow: 0 0 15px #ffcc00, 0 0 30px rgba(255, 255, 0, 0.5);
+  animation: pulse 2s ease-in-out infinite, orbit 15s linear infinite;
 }
 
 @keyframes spin {
@@ -59,22 +63,45 @@ body {
   }
 }
 
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1) translateX(-50%);
+  }
+  50% {
+    transform: scale(1.2) translateX(-50%);
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform: translate(-50%, -75px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -75px) rotate(360deg);
+  }
+}
+
 .login-form {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   padding: 20px;
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
 }
 
 .login-form h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 36px;
+  margin-bottom: 20px;
+  animation: slideDown 0.5s ease-out;
+  text-shadow: 0 0 15px #ffcc00, 0 0 30px rgba(255, 255, 0, 0.5);
 }
 
 .login-form p {
-  font-size: 14px;
+  font-size: 16px;
   margin-bottom: 20px;
+  animation: slideDown 0.7s ease-out;
 }
 
 .login-form input {
@@ -85,6 +112,11 @@ body {
   border-radius: 4px;
   background: #333;
   color: #fff;
+  animation: slideDown 0.9s ease-out;
+}
+
+.login-form input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .login-form button {
@@ -92,13 +124,77 @@ body {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  background: #ffcc00;
-  color: #000;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
+  animation: buttonBounce 1.5s infinite;
 }
 
 .login-form button:hover {
-  background: #e6b800;
+  background: linear-gradient(135deg, #0056b3, #003f7f);
+  transform: scale(1.1);
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes buttonBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.login-form button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: shadowPulse 2s infinite alternate;
+}
+
+.login-form button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5);
+}
+
+/* Animation pour un effet pulsant */
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.5), 0 0 10px rgba(0, 123, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.7), 0 0 20px rgba(0, 123, 255, 0.5);
+  }
+}
+
