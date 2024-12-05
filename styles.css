@@ -3,98 +3,167 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: #001f3d;
+  background: radial-gradient(circle, #001f3d 0%, #000000 100%);
   color: #ffffff;
+  overflow-x: hidden;
 }
 
 header {
-  background: rgba(0, 0, 50, 0.8);
-  padding: 20px;
+  background: linear-gradient(90deg, #0b3d91, #1d2951);
+  padding: 20px 10px;
   text-align: center;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 2px solid #ffcc00;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
   margin: 0;
-  font-size: 3rem;
-  color: #ffcc00;
+  font-size: 3.5rem;
+  color: #ffd700;
+  text-shadow: 0 0 20px #ffcc00, 0 0 40px #ff9900;
+  animation: glowing-text 3s infinite alternate;
+}
+
+@keyframes glowing-text {
+  0% {
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+  }
+  100% {
+    text-shadow: 0 0 20px #ffcc00, 0 0 60px #ff9900;
+  }
 }
 
 nav ul {
   list-style: none;
   padding: 0;
-  margin: 10px 0 0;
+  margin: 15px 0 0;
   display: flex;
   justify-content: center;
-}
-
-nav ul li {
-  margin: 0 15px;
+  gap: 20px;
 }
 
 nav ul li a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #fdfd96;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #fdfd96;
+  color: #ffd700;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
 }
 
 /* Section principale (Héros) */
 .hero {
-  padding: 40px;
+  padding: 60px 20px;
   text-align: center;
-  background: rgba(0, 0, 50, 0.6);
-  margin-top: 50px;
+  background: url('images/space-bg.jpg') center/cover no-repeat, rgba(0, 0, 50, 0.7);
+  background-blend-mode: overlay;
+  margin-top: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
 .hero h2 {
-  color: #ffcc00;
-  font-size: 2.5rem;
+  color: #fdfd96;
+  font-size: 3rem;
+  text-shadow: 0 0 20px #ffd700, 0 0 40px #ffcc00;
 }
 
 .hero p {
-  color: #ddd;
+  color: #ffffff;
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .buttons {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .button {
-  background: #ffcc00;
+  background: linear-gradient(90deg, #ffcc00, #ff9900);
   color: #000;
   padding: 12px 30px;
   font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 30px;
+  border-radius: 50px;
   text-decoration: none;
   margin: 10px;
   display: inline-block;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.6);
 }
 
 .button:hover {
-  background-color: #fdfd96;
   transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.8);
 }
 
 /* Footer */
 footer {
-  background: rgba(0, 0, 50, 0.9);
-  padding: 15px;
+  background: linear-gradient(90deg, #0b3d91, #1d2951);
+  padding: 20px;
   text-align: center;
-  border-top: 1px solid #ffffff;
+  border-top: 2px solid #ffcc00;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
 }
 
 footer p {
   margin: 0;
   color: #aaaaaa;
-  font-size: 0.9rem;
+  font-size: 1rem;
+}
+
+/* Effet planètes */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #ffd700 0%, #ff9900 70%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 50%;
+  top: 20%;
+  left: 10%;
+  z-index: -1;
+  animation: floating 6s infinite alternate;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #87ceeb 0%, #001f3d 70%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 50%;
+  bottom: 10%;
+  right: 15%;
+  z-index: -1;
+  animation: floating 8s infinite alternate;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
 }

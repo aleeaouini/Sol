@@ -3,103 +3,196 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: #001f3d;
+  background: linear-gradient(135deg, #001f3d, #002a5c);
   color: #ffffff;
+  overflow-x: hidden;
 }
 
 header {
   background: rgba(0, 0, 50, 0.8);
   padding: 20px;
   text-align: center;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  animation: header-fade 2s ease-in-out;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #ffcc00;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+  letter-spacing: 2px;
 }
 
+@keyframes header-fade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quiz Container */
 .quiz-container {
   text-align: center;
   padding: 20px;
   max-width: 800px;
-  margin: 20px auto;
+  margin: 40px auto;
+  background: rgba(0, 0, 50, 0.8);
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 212, 255, 0.5), inset 0px 0px 15px rgba(0, 212, 255, 0.2);
+  animation: container-pop 1.5s ease-in-out;
+}
+
+@keyframes container-pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .quiz-container h2 {
   color: #ffcc00;
   margin-bottom: 20px;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+  animation: glow-pulse 2s infinite;
 }
 
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+  }
+}
+
+/* Progress Bar */
 .progress-bar {
   background: #ffffff;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  border-radius: 10px;
   height: 20px;
   width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .progress {
-  background: #ffcc00;
+  background: linear-gradient(90deg, #ffcc00, #fdfd96);
   height: 100%;
   width: 0%;
-  border-radius: 5px;
   transition: width 0.5s ease;
+  animation: progress-bar 3s linear infinite alternate;
 }
 
+@keyframes progress-bar {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Questions */
 .question {
   text-align: left;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .question p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  color: #fdfd96;
+  text-shadow: 0px 0px 5px rgba(255, 255, 255, 0.8);
+}
+
+.question img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px auto;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.question img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 20px 40px rgba(255, 255, 255, 0.5);
 }
 
 label {
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: block;
-  margin: 5px 0;
+  margin: 10px 0;
+  cursor: pointer;
+  color: #00d4ff;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
+label:hover {
+  color: #fdfd96;
+  transform: translateX(10px);
+}
+
+/* Boutons */
 button {
-  background: #ffcc00;
+  background: linear-gradient(135deg, #ffcc00, #fdfd96);
   color: #000;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 30px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 button:hover {
-  background-color: #fdfd96;
+  background: linear-gradient(135deg, #fdfd96, #ffcc00);
+  transform: translateY(-3px);
+  box-shadow: 0px 15px 30px rgba(255, 255, 255, 0.5);
 }
 
+/* Résultats */
 .result {
   display: none;
   margin-top: 20px;
+  animation: result-fade-in 1.5s ease-in-out;
 }
 
 .result h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #ffcc00;
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
-.explanation {
-  margin-top: 10px;
-  color: #aaaaaa;
-  font-size: 0.9rem;
+@keyframes result-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+/* Footer */
 footer {
   background: rgba(0, 0, 50, 0.9);
-  padding: 10px;
+  padding: 20px;
   text-align: center;
-  border-top: 1px solid #ffffff;
-  margin-top: 20px;
+  border-top: 2px solid #ffffff;
 }
 
 footer p {
@@ -107,39 +200,3 @@ footer p {
   color: #aaaaaa;
   font-size: 0.9rem;
 }
-.question {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.question img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 10px 0;
-  border: 2px solid #ffffff;
-  border-radius: 5px;
-}
-
-label {
-  font-size: 1rem;
-  display: block;
-  margin: 5px 0;
-}
-
-button {
-  background: #ffcc00;
-  color: #000;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #fdfd96;
-}
-
